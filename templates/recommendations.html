@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block search %}
+  <div class='container'>
+<form action="." method="POST">
+    <div class='left'>
+
+      
+          <input id="search-a" type="search" name="movie-a" value="{{a}}">
+	  <input id="search-b" type="search" name="movie-b" value="{{b}}">
+      
+    </div>
+
+    <div class='right hidden-submit' id="button-search">
+        <input type="submit" id="submit" tabindex="-1" hidefocus="true"></input>
+    </div>
+  </div>
+</form>
+
+</div>
+{% endblock %}
+{% block body %}
+<div class='vertical-center absolute center info'>
+  <h2>Your Recommendations</h2>
+<!--  <p class='info'>movie A: {{a}}, movie B: {{b}}
+</p> -->
+<ul>
+{% for item in recos %}
+  <li style='text-align:left'>{{item}}</li>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}

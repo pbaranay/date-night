@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>    
+
+      <title>Date Night</title>    
+
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arvo:400,700"></link>
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:800,400,300|Inconsolata"></link>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="http://twitter.github.com/hogan.js/builds/2.0.0/hogan-2.0.0.js"></script>
+    <script src="/static/js/typeahead.min.js"></script>
+    <link href="/static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/static/typeahead.js-bootstrap.css" rel="stylesheet" media="screen">
+    <link href="/static/style.css" rel="stylesheet" media="screen">
+    <link rel="shortcut icon" href="static/img/ig_blue.png" type="image/png">
+    <!-- <link rel="shortcut icon" type="image/png" href="http://www.example.com/favicon.png" /> -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body> 
+
+<div class='absolute-center center-container'>
+<div class='top navbar navbar-fixed-top'>
+  <h1>Date Night</h1>
+
+{% block search %}
+  <div class='container'>
+<form action="." method="POST">
+    <div class='left'>
+
+      
+          <input id="search-a" type="search" name="movie-a" placeholder="Your favorite movie">
+	  <input id="search-b" type="search" name="movie-b" placeholder="Your date's favorite movie">
+      
+    </div>
+
+    <div class='right hidden-submit' id="button-search">
+        <input type="submit" id="submit" tabindex="-1" hidefocus="true"></input>
+    </div>
+  </div>
+</form>
+
+</div>
+{% endblock %}
+
+<div class='shadow'>
+{% block body %}
+{% endblock %}
+</div>
+
+<!--
+<script type="text/javascript">
+    $('#search').typeahead([
+        {
+            name: 'test2',
+            remote: '/get_user_repo?q=%QUERY',
+            limit: 10,
+        },
+    ]);
+
+    $('#button-search').click(function() {
+        // if (e.which == 13) {
+            var input = $('#search').val();
+            console.log(input);
+            $('.shadow').html('');
+            $.getJSON('/search?q='+input, function(data) {
+                window.history.pushState("", "Inspector Git", "/" + input.replace('/','+'))
+                $('.shadow').html('');
+                $.each(data, function(key, val) {
+                
+                    $('.shadow').append('<div class="bar"><p><a target="_blank" href="'+val+'">'+key+'</a></p></div>'); 
+                    
+                });
+            });
+        // }
+    });
+
+    $('#search').keypress( function(e) {
+        if (e.which == 13) {
+            var input = $(this).val();
+            console.log(input);
+            $('.shadow').html('');
+            $.getJSON('/search?q='+input, function(data) {
+                window.history.pushState("", "Inspector Git", "/" + input.replace('/','+'))
+                $('.shadow').html('');
+                $.each(data, function(key, val) {
+                
+                    $('.shadow').append('<div class="bar"><p><a target="_blank" href="'+val+'">'+key+'</a></p></div>'); 
+                    
+                });
+            });
+        }
+    });
+
+
+</script>
+-->
+
+    </div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom bottom" role="navigation">
+<a href="{{ url_for('about')}}" class="bottom">About</a>
+<a href="mailto:pbaranay@gmail.com" class="bottom">Contact</a>  
+</nav>
+
+  </body>
+</html>

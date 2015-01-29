@@ -1,0 +1,1 @@
+web: gunicorn date-night:app --log-file=-
