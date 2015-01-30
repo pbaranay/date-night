@@ -11,5 +11,5 @@ itsdangerous==0.24
 Jinja2==2.7.3
 MarkupSafe==0.23
 networkx==1.9.1
+-e git://github.com/ocelma/python-recsys.git@48df9c47374b9ddfce876e1118e222ebb9172680#egg=python_recsys-master
 Werkzeug==0.9.6
--e https://github.com/ocelma/python-recsys.git
