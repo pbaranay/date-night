@@ -12,6 +12,7 @@ lookup_id = dill.load(open("static/lookup_id.dill"))
 average_similarity = dill.load(open("static/average_similarity.dill"))
 svd = dill.load(open("static/svd.dill"))
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
