@@ -11,6 +11,5 @@ itsdangerous==0.24
 Jinja2==2.7.3
 MarkupSafe==0.23
 networkx==1.9.1
---allow-unverified python-recsys
-python-recsys==0.2
 Werkzeug==0.9.6
+-e https://github.com/ocelma/python-recsys.git
