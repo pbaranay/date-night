@@ -1,19 +1,20 @@
-{% extends "bootstrap/base.html" %}
-{% block head %}
-{{super()}}
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link rel="icon" type="image/png" href="{{url_for('.static', filename='favicon.png')}}">
-{% endblock %}
-{% block styles %}
-{{super()}}
 <link rel="stylesheet"
       href="{{url_for('.static', filename='main.css')}}">
 <link rel="stylesheet"
       href="{{url_for('.static', filename='cover.css')}}">
 <!-- <link rel="stylesheet"
-      href="{{url_for('.static', filename='lavish.css')}}"> -->
+      href="{{url_for('.static', filename='bootstrap.min.css')}}"> -->
+<title>Date Night</title>
+</head>
 {% endblock %}
-{% block title %}Date Night{% endblock %}
 
+<body>
 {% block navbar %}
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
@@ -87,3 +88,8 @@ $(document).ready(function(){
 </div>
 {% endblock %}
 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
