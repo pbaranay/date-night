@@ -1,0 +1,89 @@
+{% extends "bootstrap/base.html" %}
+{% block head %}
+{{super()}}
+<link rel="icon" type="image/png" href="{{url_for('.static', filename='favicon.png')}}">
+{% endblock %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='main.css')}}">
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='cover.css')}}">
+<!-- <link rel="stylesheet"
+      href="{{url_for('.static', filename='lavish.css')}}"> -->
+{% endblock %}
+{% block title %}Date Night{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{ url_for('index')}}">Date Night</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="mailto:pbaranay@gmail.com">Contact</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="inner cover">
+	<p class="lead black"><b>Find the perfect movie...<br/> for both of you.</b></p>
+
+<div class="row">
+<div class="col-md-1"></div>
+<div class="col-md-5">
+<h3>Yours</h3>
+<div class="well well-main">
+  <form action="." method="POST"><input id="search-a" name="yours" placeholder="Your favorite movie" type="text">
+</div>
+</div>
+<div class="col-md-5">
+<h3>Theirs</h3>
+<div class="well well-main">
+  <input id="search=b" name="theirs" placeholder="Their favorite movie" type="text">
+</div>
+<div class="col-md-1"></div>
+</div>
+
+<div class="row">
+<div class="col-md-12">
+<button class="btn" id="submit" type="submit">Find!</button></form>
+</div>
+</div>
+
+</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('input.typeahead').typeahead({
+      name: 'accounts',
+      local: ['Audi', 'BMW', 'Bugatti', 'Ferrari', 'Ford', 'Lamborghini', 'Mercedes Benz', 'Porsche', 'Rolls-Royce', 'Volkswagen']
+    });
+});  
+</script>
+
+<div class="mastfoot">
+<div class="inner">
+  <p><b>Date Night</b>, by Paul Baranay</p>
+</div>
+</div>
+{% endblock %}
+

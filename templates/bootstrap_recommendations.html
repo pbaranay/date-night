@@ -1,0 +1,36 @@
+{% extends "bootstrap_test.html" %}
+{% block content %}
+
+<div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="inner cover">
+
+<div class="row">
+<div class="col-md-1"></div>
+<div class="col-md-5"><u><h3>Yours</h3></u><h4>{{yours}}</h4></p></div>
+<div class="col-md-5"><u><h3>Theirs</h3></u><h4>{{theirs}}</h4></p></div>
+<div class="col-md-1"></div>
+</div>
+
+{% for item in recos %}
+<div class="row">
+<div class="col-md-4"></div>
+<div class="col-md-4">
+  <div class="well well-main" style="color: black">
+    {{item}}
+  </div>
+</div>
+<div class="col-md-4"></div>
+</div>
+{% endfor %}
+</div>
+
+<button class="btn" id="submit" type="submit">Search Again!</button>
+
+<div class="mastfoot">
+<div class="inner">
+  <p><b>Date Night</b>, by Paul Baranay</p>
+</div>
+</div>
+{% endblock %}

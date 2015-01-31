@@ -1,0 +1,24 @@
+.container {
+    text-align: center;
+}
+
+.show-grid [class*="span"] {
+    background-color: #ddd;
+}
+
+.black {
+    color: black
+}
+
+.white {
+    color: white
+}
+
+.well-main {
+    border-radius: 30px;
+/*    width: 100%; */
+}
+
+input, button {
+    color: black
+}
