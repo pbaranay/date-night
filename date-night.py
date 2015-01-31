@@ -44,10 +44,6 @@ def about():
 def typeahead():
     return render_template('the-basics.html')
 
-@app.route('/bootstrap')
-def bootstrap_minimal():
-    return render_template('minimal_bootstrap.html')
-
 if __name__ == '__main__':
     Bootstrap(app)
     app.run(host='0.0.0.0', debug=True)
