@@ -13,7 +13,7 @@ inv_d = dill.load(open("static/inv_d.dill"))
 lookup_name = dill.load(open("static/lookup_name.dill"))
 lookup_id = dill.load(open("static/lookup_id.dill"))
 average_similarity = dill.load(open("static/average_similarity.dill"))
-svd = dill.load(open("static/svd.dill"))
+#svd = dill.load(open("static/svd.dill"))
 
 @app.route('/')
 def index():
