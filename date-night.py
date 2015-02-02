@@ -31,7 +31,10 @@ def index_post_form():
     try:
         id_a = lookup_id(a.lower())
         id_b = lookup_id(b.lower())
+    except:
+        recos = ["Error - Sorry! Please try again. (Error finding movie ID's.)"]
         # first argument has to be lower than second argument
+    try:
         if id_a < id_b:
             recos = dill.load(open(path.join("static/","recommendations",str(id_a), str(id_b))))
         elif id_a > id_b:
@@ -41,7 +44,7 @@ def index_post_form():
         recos = [x.title() for x in recos]
         # TODO: make the title'ing better (handle "of", "the", "Bug'S")
     except:
-        recos = ["Error - Sorry! Please try again."]
+        recos = ["Error - Sorry! Please try again. (Error finding recommendations.)"]
         # TODO: add nicer error page
     return render_template('bootstrap_recommendations.html', yours=a, theirs=b, recos=recos[0:5])
 #    return render_template('recommendations.html', a=a, b=b, recos=recos)
