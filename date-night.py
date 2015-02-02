@@ -5,6 +5,7 @@ from flask import render_template
 from flask import request
 import dill
 from flask_bootstrap import Bootstrap
+from os import path
 
 app = Flask(__name__)
 
@@ -12,7 +13,7 @@ d = dill.load(open("static/d.dill"))
 inv_d = dill.load(open("static/inv_d.dill"))
 lookup_name = dill.load(open("static/lookup_name.dill"))
 lookup_id = dill.load(open("static/lookup_id.dill"))
-average_similarity = dill.load(open("static/average_similarity.dill"))
+#average_similarity = dill.load(open("static/average_similarity.dill"))
 #svd = dill.load(open("static/svd.dill"))
 
 @app.route('/')
@@ -28,8 +29,17 @@ def index_post_form():
     a = request.form['yours']
     b = request.form['theirs']
     try:
-        recos = average_similarity(a, b)
+        id_a = lookup_id(a.lower())
+        id_b = lookup_id(b.lower())
+        # first argument has to be lower than second argument
+        if id_a < id_b:
+            recos = dill.load(open(path.join("static/","recommendations",str(id_a), str(id_b))))
+        elif id_a > id_b:
+            recos = dill.load(open(path.join("static/","recommendations",str(id_b), str(id_a))))
+        elif id_a == id_b:
+            recos = ["Error - Please give me two different movies!"]
         recos = [x.title() for x in recos]
+        # TODO: make the title'ing better (handle "of", "the", "Bug'S")
     except:
         recos = ["Error - Sorry! Please try again."]
         # TODO: add nicer error page
