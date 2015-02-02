@@ -61,7 +61,23 @@ def index_post_form():
 
 @app.route('/about')
 def about():
-    return render_template('bootstrap_about.html')
+#    return render_template('bootstrap_about.html')
+    return render_template('bootstrap_about_1.html')
+
+@app.route('/about/2')
+def about_two():
+    try:
+        return render_template('bootstrap_about_2.html')
+    except Exception as e:
+        print >> sys.stderr, e 
+
+@app.route('/about/3')
+def about_three():
+    return render_template('bootstrap_about_3.html')
+
+@app.route('/about/4')
+def about_four():
+    return render_template('bootstrap_about_4.html')
 
 @app.route('/typeahead')
 def typeahead():
