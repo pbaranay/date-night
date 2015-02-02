@@ -1,0 +1,23 @@
+{% extends "bootstrap_test.html" %}
+
+{% block content %}
+
+<div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="inner cover">
+
+<p class="lead white"><b>singular value decomposition</b></p>
+
+<img src="{{url_for('static', filename='SVD.jpg')}}">
+
+<br /> <br />
+
+<a class="btn btn-default" href="{{url_for('about')}}" role="button">Prev</a>
+<a class="btn btn-default" href="{{url_for('about_three')}}" role="button">Next</a>
+
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

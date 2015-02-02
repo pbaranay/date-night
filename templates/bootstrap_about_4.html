@@ -1,0 +1,20 @@
+{% extends "bootstrap_test.html" %}
+
+{% block content %}
+
+<div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="inner cover">
+
+<p class="lead black"><b>recommendations</b></p>
+<p class="lead white">for every movie, compute cosine similarity</p>
+<p class="lead white">similarity(yours) + simliarity(theirs)</p>
+<p class="lead white"><b>return top 5</b></p>
+
+<a class="btn btn-default" href="{{url_for('index')}}" role="button">Try It!</a>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
