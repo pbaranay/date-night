@@ -14,6 +14,18 @@
     color: white
 }
 
+a.brown:link {
+    color: #926652;
+}
+
+a.brown:visited {
+    color: #926652;
+}
+
+a.brown:hover {
+    color: #8B7C8C;
+}
+
 .well-main {
     border-radius: 30px;
 /*    width: 100%; */
