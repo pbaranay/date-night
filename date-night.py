@@ -61,8 +61,11 @@ def index_post_form():
 
 @app.route('/about')
 def about():
-#    return render_template('bootstrap_about.html')
-    return render_template('bootstrap_about_1.html')
+    return render_template('bootstrap_about.html')
+
+@app.route('/about/1')
+def slides():
+    return render_template('bootstrap_about_1.html')    
 
 @app.route('/about/2')
 def about_two():
