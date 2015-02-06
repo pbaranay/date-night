@@ -27,16 +27,12 @@ def old_index():
 
 @app.route('/', methods=['POST'])
 def index_post_form():
-    print "foobar"
     try:
-        print request.form
-        print request.form.keys()
         a = request.form['yours']
         b = request.form['theirs']
-        print "a: {0}, b: {1}".format(a,b)
     except Exception as e:
-        print "exception!"
-        print >> sys.stderr, e
+        a = None
+        b = None
     d = dill.load(open("static/d.dill"))
     inv_d = dill.load(open("static/inv_d.dill"))
     try:
