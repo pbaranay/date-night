@@ -7,15 +7,13 @@ import dill
 from flask_bootstrap import Bootstrap
 import os
 import sys
+from AverageSimilarity import average_similarity
 
 app = Flask(__name__)
 
-#d = dill.load(open("static/d.dill"))
-#inv_d = dill.load(open("static/inv_d.dill"))
-#lookup_name = dill.load(open("static/lookup_name.dill"))
-#lookup_id = dill.load(open("static/lookup_id.dill"))
-#average_similarity = dill.load(open("static/average_similarity.dill"))
-#svd = dill.load(open("static/svd.dill"))
+svd = dill.load(open("static/svd.dill"))
+# loading SVD at this point causes the intial page load to be slow,
+# but others to be fast
 
 @app.route('/')
 def index():
@@ -39,29 +37,17 @@ def index_post_form():
         id_a = inv_d[a.lower()]  # lookup_id
         id_b = inv_d[b.lower()]  # lookup_id
     except Exception as e:
-#        print >> sys.stderr, e
         recos = ["Error - Sorry! Please try again. (Error finding movie ID's.)"]
-        # first argument has to be lower than second argument
+
     try:
-        if id_a < id_b:
-            recs_filepath = "static/recommendations/"+str(id_a)+"/"+str(id_b)
-#            recs_filepath = os.path.join("static","recommendations",str(id_a), str(id_b))
-            recos = dill.load(open(recs_filepath))
-#            recos = dill.load(open("static/recommendations/"+str(id_a)+"/"+str(id_b)))
-        elif id_a > id_b:
-            recs_filepath = "static/recommendations/"+str(id_b)+"/"+str(id_a)
-            recos = dill.load(open(recs_filepath))
-#            recos = dill.load(open("static/recommendations/"+str(id_b)+"/"+str(id_a)))
-        elif id_a == id_b:
-            recos = ["Error - Please give me two different movies!"]
-        recos = [x.title() for x in recos]
-        # TODO: make the title'ing better (handle "of", "the", "Bug'S")
+#        svd = dill.load(open("static/svd.dill"))
+        # one option would be to load svd here, but this is repetitive
+        # and unnecessary, and results in long loads for EACH query
+        recos = average_similarity(id_a, id_b, svd)
     except Exception as e:
-#        print >> sys.stderr, e
-        recos = ["Error - Sorry! Please try again. (Error finding recommendations.)"]
-        # TODO: add nicer error page
+        recos = ["Error -- issue loading objects."]
+#         # TODO: add nicer error page
     return render_template('bootstrap_recommendations.html', yours=a, theirs=b, recos=recos[0:5])
-#    return render_template('recommendations.html', a=a, b=b, recos=recos)
 
 @app.route('/about')
 def about():
