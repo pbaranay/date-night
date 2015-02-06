@@ -34,3 +34,7 @@ a.brown:hover {
 input, button {
     color: black
 }
+
+input.tt-hint {
+    left: auto !important;
+}
